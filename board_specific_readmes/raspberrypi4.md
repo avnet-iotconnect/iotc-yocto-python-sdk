@@ -1,5 +1,7 @@
 # Pi4 build from scratch
 
+Tested on Ubuntu 20.04 in a docker image
+
 Final directory structure (abridged)
 ```bash
 tree -L 2 iot-connect-rpi4/
