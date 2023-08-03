@@ -15,6 +15,8 @@ iot-connect-rpi4/
 └── poky
 ```
 
+These steps can be copied and pasted to your terminal for a quick build
+
 ```bash
 # Clone the base layers
 git clone git://git.yoctoproject.org/poky.git -b hardknott
@@ -49,15 +51,15 @@ The target device will not have the correct time set, using a distro with system
 echo -e '\nDISTRO_FEATURES_append = " systemd"\nDISTRO_FEATURES_BACKFILL_CONSIDERED += " sysvinit"\nVIRTUAL-RUNTIME_init_manager = " systemd"\nVIRTUAL-RUNTIME_initscripts = " systemd-compat-units"\n' >> ./conf/local.conf
 ```
 
-```
 # Python SDK stuff
 
 ```bash
 # Get layers from the repo
+cd .. && \
 wget https://github.com/avnet-iotconnect/iotc-yocto-python-sdk/archive/refs/heads/hardknott.zip && \
 unzip hardknott.zip -d .tmp/ && \
 mv .tmp/iotc-yocto-python-sdk-hardknott/meta-* . && \
-rm -r hardknott.zip .tmp/ && \
+rm -r hardknott.zip .tmp/
 
 # Add layers to build and include the recipe to your build
 cd build && \
