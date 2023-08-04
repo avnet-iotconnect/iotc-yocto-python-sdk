@@ -19,25 +19,25 @@ These steps can be copied and pasted to your terminal for a quick build
 
 ```bash
 # Clone the base layers
-git clone git://git.yoctoproject.org/poky.git -b hardknott
-git clone git://git.openembedded.org/meta-openembedded  -b hardknott
-git clone git://git.yoctoproject.org/meta-raspberrypi.git -b hardknott
+git clone git://git.yoctoproject.org/poky.git -b hardknott && \
+git clone git://git.openembedded.org/meta-openembedded  -b hardknott && \
+git clone git://git.yoctoproject.org/meta-raspberrypi.git -b hardknott && \
 
 # Initialize bitbake
-source poky/oe-init-build-env
+source poky/oe-init-build-env && \
 
 # Add layers
 bitbake-layers add-layer ../meta-raspberrypi/ && \
 bitbake-layers add-layer ../meta-openembedded/meta-oe/ && \
 bitbake-layers add-layer ../meta-openembedded/meta-python/ && \
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia/ && \
-bitbake-layers add-layer ../meta-openembedded/meta-networking/
+bitbake-layers add-layer ../meta-openembedded/meta-networking/ && \
 
 # Set machine to raspberrypi4
-sed -i 's/qemux86-64/raspberrypi4/g' ./conf/local.conf 
+sed -i 's/qemux86-64/raspberrypi4/g' ./conf/local.conf && \
 
 # Build patch
-echo -e '\nSECURITY_STRINGFORMAT = ""\n' >> ./conf/local.conf 
+echo -e '\nSECURITY_STRINGFORMAT = ""\n' >> ./conf/local.conf && \
 
 # Accept the wireless license and enable UART for serial debugging
 echo -e '\nLICENSE_FLAGS_ACCEPTED = " synaptics-killswitch"\nENABLE_UART = "1"\n' >> ./conf/local.conf
@@ -59,13 +59,13 @@ cd .. && \
 wget https://github.com/avnet-iotconnect/iotc-yocto-python-sdk/archive/refs/heads/hardknott.zip && \
 unzip hardknott.zip -d .tmp/ && \
 mv .tmp/iotc-yocto-python-sdk-hardknott/meta-* . && \
-rm -r hardknott.zip .tmp/
+rm -r hardknott.zip .tmp/ && \
 
 # Add layers to build and include the recipe to your build
 cd build && \
 bitbake-layers add-layer ../meta-iotc-python-sdk/ && \
 bitbake-layers add-layer ../meta-my-iotc-python-sdk-example/ && \
-echo -e '\nIMAGE_INSTALL += " iotc-python-sdk"' >> ./conf/local.conf 
+echo -e '\nIMAGE_INSTALL += " iotc-python-sdk packagegroup-core-boot kernel-modules"' >> ./conf/local.conf 
 ```
 
 # Build
