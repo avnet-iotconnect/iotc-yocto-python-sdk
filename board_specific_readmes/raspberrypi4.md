@@ -79,13 +79,17 @@ bitbake core-image-base
 ```bash
 # Set download directories to `${HOME}/yocto`
 echo -e '\nDL_DIR ?= "${HOME}/yocto/yocto-downloads"\nSSTATE_DIR ?= "${HOME}/yocto/yocto-sstate-cache"\nSSTATE_MIRRORS ?= "file://.* http://sstate.yoctoproject.org/3.1.15/PATH;downloadfilename=PATH"' >> ./conf/local.conf
-
+```
+```bash
 # Include nano text editor
 echo -e '\nCORE_IMAGE_EXTRA_INSTALL_append = " nano"\n' >> ./conf/local.conf
+```
 
+```bash
 # Add a user `root` with password `avnet`
 echo -e '\nEXTRA_IMAGE_FEATURES=""
 INHERIT += "extrausers"
 EXTRA_USERS_PARAMS = "\ 
 \tusermod -P avnet root; \ 
 "' >> ./conf/local.conf 
+```
