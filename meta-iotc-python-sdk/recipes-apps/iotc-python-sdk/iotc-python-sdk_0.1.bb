@@ -12,11 +12,11 @@
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec6d293b95dea7b07891"
 
-SRC_URI = "git://git@github.com/avnet-iotconnect/iotc-python-sdk.git;protocol=ssh;branch=master-std-21"
+SRC_URI = "git://git@github.com/akarnil/iotc-python-sdk.git;protocol=ssh;branch=master-std-21-changes-for-ota-demo"
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "dc94de8c037384eae355259926f3edbf6e9b83a3"
+SRCREV = "c7b25672ab777bca0e872f6ed4e1ac8457101dff"
 
 S = "${WORKDIR}/git/iotconnect-sdk-1.0"
 DISTUTILS_SETUP_PATH = "${WORKDIR}/git/iotconnect-sdk-1.0"

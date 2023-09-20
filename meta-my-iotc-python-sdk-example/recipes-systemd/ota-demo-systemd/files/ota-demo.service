@@ -1,0 +1,14 @@
+[Unit]
+Description= iotconnect python service, runs forever
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -u /usr/bin/iotc/ota-demo/main.py
+Restart=always
+StandardOutput=journal+console
+StandardError=journal+console
+
+[Install]
+WantedBy=multi-user.target
