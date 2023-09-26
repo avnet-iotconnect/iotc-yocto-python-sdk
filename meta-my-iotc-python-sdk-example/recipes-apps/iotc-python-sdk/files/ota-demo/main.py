@@ -3,10 +3,18 @@ import os
 import sys
 from importlib import import_module, reload
 
+# import both so the ota logic is bound to the SDK's ota handler, any files using IoTConnectSDK will now call the logic from ota during OTA events
+from iotconnect import IoTConnectSDK
+import ota
+
 
 # this the runner of the demo, used to show A/B updates
 # the actual code lives inside a folder called `primary_app_dir`
 # should it fail, an attempt will be made to run the previous code in `secondary_app_dir`
+
+# this sample can perform OTA updates, requirements of the OTA payload
+# OTA payload must be a single file of file extension .tar.gz
+# the updated application .py file  must be called the same as a previous version otherwise it will not load, refer to app_name
 
 # Stuff to change
 app_name: str = "telemetry_basic_sample.py"
@@ -32,6 +40,25 @@ app_paths: dict = {
     "primary_app_backup_folder_name" : primary_app_backup_folder_name
 }
 
+# assign app paths to ota handler
+ota.app_paths = app_paths
+
+def run_app(to_run_path: str):
+    try:
+        print("Running app on "+ to_run_path)
+
+        module_path: str = to_run_path.replace(app_name,"")
+        sys.path.append(module_path)
+        module = import_module(module_name)
+        reload(module)
+        module.main()
+    except Exception as ex:
+        sys.path.remove(module_path)
+        print("App failed")
+        print(str(ex))
+        raise
+
+
 if __name__ == "__main__":
 
     secondary_exists: bool = False
@@ -45,44 +72,21 @@ if __name__ == "__main__":
         primary_exists = True
 
     if primary_exists and secondary_exists:
+        print("Primary and Secondary exist, running")
         try:
-            print("Running app on A")
-            path = primary_path
-            sys.path.append(path.replace(app_name,""))
-            module = import_module(module_name)
-            print("using app at " + path)
-            module.main(app_paths)
-        except Exception as ex:
-            print(str(ex))
-            print("app on A, has failed trying secondary B")
-            sys.path.remove(path.replace(app_name,""))
-            path = secondary_path
-            sys.path.append(path.replace(app_name,""))
-            reload(module)
-            print("Running app on B")
-            print("using app at " + path)
-            module.main(app_paths)
+            run_app(primary_path)
+        except Exception:
+            print("Primary app has failed trying backup")
+            run_app(secondary_path)
 
     elif primary_exists:
-        try:
-            print("Running app on A")
-            path = primary_path
-            sys.path.append(path.replace(app_name,""))
-            module = import_module(module_name)
-            print("using app at " + path)
-            module.main(app_paths)
-        except Exception as ex:
-            print("App failed")
-            print(str(ex))
+        print("Only Primary exists, running")
+        run_app(primary_path)
 
     elif secondary_exists:
-        try:
-            print("Running app on B")
-            path = secondary_path
-            sys.path.append(path.replace(app_name,""))
-            module = import_module(module_name)
-            print("using app at " + path)
-            module.main(app_paths)
-        except Exception as ex:
-            print("App failed")
-            print(str(ex))
+        print("Only Secondary exists, running")
+        run_app(secondary_path)
+    
+    else:
+        print("No valid application exists to run")
+
