@@ -16,7 +16,7 @@
 # OTA payload must be a single file of file extension .tar.gz
 # OTA update version of the main .py file must be called the same as a previous version otherwise it will not load
 
-app_version: str = "1.0"
+app_version: str = "2.0"
 
 import sys
 import json
@@ -37,7 +37,7 @@ import os
 
 import tarfile
 import shutil
-from urllib.request import urlretrieve 
+import urllib.request, json
 
 import credentials
 UniqueId: str = credentials.UniqueId 
@@ -237,6 +237,34 @@ def generate_dummy_payload():
 
     return dObj
 
+def generate_weather_payload():
+
+    with urllib.request.urlopen("https://api.open-meteo.com/v1/forecast?latitude=51.45&longitude=-2.59&current_weather=true") as url:
+        data = json.load(url)
+        print(data)
+
+    to_send = {
+    "sw_version": app_version,
+    'latitude': data["latitude"],
+    'longitude': data["longitude"],
+    'timezone': data["timezone"],
+    "temperature":data["current_weather"]["temperature"],
+    'elevation': data["elevation"],
+    'windspeed': data["current_weather"]["windspeed"],
+    'winddirection': data["current_weather"]["winddirection"],
+    'weathercode': data["current_weather"]["weathercode"],
+    'is_day': data["current_weather"]["is_day"],
+    'time': data["current_weather"]["time"],
+    }
+
+    dObj = [{
+        "uniqueId": UniqueId,
+        "time": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+        "data": to_send
+    }]
+
+    return dObj
+
 def main(app_paths_in:dict):
 
     global app_paths 
@@ -247,7 +275,7 @@ def main(app_paths_in:dict):
 
     try:
         while Sdk._needs_exit == False:
-            sendBackToSDK(Sdk, generate_dummy_payload())
+            sendBackToSDK(Sdk, generate_weather_payload())
     except KeyboardInterrupt:
         print ("Keyboard Interrupt Exception")
         # os.execl(sys.executable, sys.executable, *sys.argv)
@@ -258,5 +286,6 @@ def main(app_paths_in:dict):
         sys.exit(0)
 
 if __name__ == "__main__":
+    generate_weather_payload()
     print("execute from main.py")
    # main()
