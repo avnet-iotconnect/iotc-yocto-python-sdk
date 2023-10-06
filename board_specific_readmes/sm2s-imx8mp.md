@@ -83,7 +83,7 @@ clone iotc-yocto-python-sdk into `<basedir>/source`.
 
 Add both layers from iotc-yocto-python-sdk to the `bblayers.conf` file located in `build/01047/conf`
 
-add the recipes to your build target e.g. add `IMAGE_INSTALL += " iotc-python-sdk"` to the bottom of `build/conf/local.conf`
+add the recipes to your build target e.g. add `IMAGE_INSTALL += " iotc-python-sdk json-device-demo-service "` to the bottom of `build/conf/local.conf`
 
 navigate to `build/01047` and build your needed image.
 

@@ -1,0 +1,14 @@
+[Unit]
+Description= iotconnect python service, runs forever
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -u /usr/bin/iotc/json-device-demo/telemetry_demo.py /usr/bin/iotc/json-device-demo/credentials.json
+Restart=always
+StandardOutput=journal+console
+StandardError=journal+console
+
+[Install]
+WantedBy=multi-user.target
