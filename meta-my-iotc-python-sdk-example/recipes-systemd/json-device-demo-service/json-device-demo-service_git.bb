@@ -1,6 +1,7 @@
 LICENSE = "CLOSED"
 inherit systemd
 
+
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "json-device-demo.service"
 
