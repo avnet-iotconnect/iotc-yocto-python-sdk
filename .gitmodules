@@ -1,0 +1,3 @@
+[submodule "meta-my-iotc-python-sdk-example/recipes-apps/iotc-python-sdk-demos/files/json-device-demo"]
+	path = meta-my-iotc-python-sdk-example/recipes-apps/iotc-python-sdk-demos/files/json-device-demo
+	url = git@github.com:akarnil/iotc-python-demos.git
