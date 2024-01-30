@@ -16,7 +16,7 @@ SRC_URI = "git://git@github.com/avnet-iotconnect/iotc-python-sdk.git;protocol=ss
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "083e0b74390775e12295fe7703c056ba10bdef90"
+SRCREV = "8d03c8251db071c7cc9651a12e8709445ad4c56d"
 
 S = "${WORKDIR}/git/iotconnect-sdk-1.0"
 DISTUTILS_SETUP_PATH = "${WORKDIR}/git/iotconnect-sdk-1.0"
@@ -24,17 +24,19 @@ DISTUTILS_SETUP_PATH = "${WORKDIR}/git/iotconnect-sdk-1.0"
 # NOTE: no Makefile found, unable to determine what needs to be done
 inherit setuptools3
 
-RDEPENDS_${PN} += " python3-ntplib"
-RDEPENDS_${PN} += " python3-paho-mqtt"
-RDEPENDS_${PN} += " python3-jsonlib"
-RDEPENDS_${PN} += " python3-pip"
 
-do_configure () {
+RDEPENDS:${PN} += " python3-pip"
+
+RDEPENDS:${PN} += " python3-ntplib"
+RDEPENDS:${PN} += " python3-paho-mqtt"
+RDEPENDS:${PN} += " python3-wheel"
+
+distutils_do_configure () {
 	# Specify any needed configure commands here
 	:
 }
 
-do_compile () {
+distutils_do_compile () {
 	# Specify compilation commands here
 	:
 }
@@ -43,4 +45,3 @@ distutils_do_install () {
 	# Specify install commands here
 	:
 }
-
