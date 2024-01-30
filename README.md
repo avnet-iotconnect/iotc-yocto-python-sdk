@@ -1,8 +1,8 @@
 # IoT-Connect Yocto Python SDK
 > [!IMPORTANT]
-> This IoT-Connect connect layer only supports **hardknott**
+> This IoT-Connect connect layer only supports **kirkstone**
 
-*The following details yocto layers designed to integrate the [iotc Python SDK]([https://github.com/avnet-iotconnect/iotc-python-sdk/tree/master-std-21]). The end result is an image with the SDK repo & a couple of sample python scripts installed. Once said image is flashed to a target, the sample scripts should successfully run & establish comms with an appropriately setup device on https://avnet.iotconnect.io/*
+*The following details yocto layers designed to integrate the [IoT-Connect Python SDK]([https://github.com/avnet-iotconnect/iotc-python-sdk/tree/master-std-21]). The end result is an image with the SDK repo & a couple of sample python scripts installed. Once said image is flashed to a target, the sample scripts should successfully run & establish comms with an appropriately setup device on https://avnet.iotconnect.io/*
 
 ## Layers
 There are 2 layers thus far: `meta-iotc-python-sdk` & `meta-my-iotc-python-sdk-example`.
