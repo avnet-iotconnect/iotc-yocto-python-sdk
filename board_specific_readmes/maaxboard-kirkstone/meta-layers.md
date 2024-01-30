@@ -19,7 +19,7 @@ These instructions are designed to get a Yocto image up and running for a specif
     
     bitbake-layers add-layer ../../meta-iotconnect/meta-my-iotc-python-sdk-example/
     
-    echo -e '\nIMAGE_INSTALL += " iotc-demo-dev iotc-demo-service packagegroup-core-boot kernel-modules"' >> ./conf/local.conf
+    echo -e '\nCORE_IMAGE_EXTRA_INSTALL += " iotc-demo-dev iotc-demo-service"' >> ./conf/local.conf
     
     echo -e '\nDISTRO_FEATURES_append = " systemd"\nDISTRO_FEATURES_BACKFILL_CONSIDERED += " sysvinit"\nVIRTUAL-RUNTIME_init_manager = " systemd"\nVIRTUAL-RUNTIME_initscripts = " systemd-compat-units"\n' >> ./conf/local.conf
     
