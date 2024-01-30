@@ -21,14 +21,22 @@ These instructions are designed to get a Yocto image up and running for a specif
     
     echo -e '\nCORE_IMAGE_EXTRA_INSTALL += " iotc-demo-dev iotc-demo-service"' >> ./conf/local.conf
     
-    echo -e '\nDISTRO_FEATURES_append = " systemd"\nDISTRO_FEATURES_BACKFILL_CONSIDERED += " sysvinit"\nVIRTUAL-RUNTIME_init_manager = " systemd"\nVIRTUAL-RUNTIME_initscripts = " systemd-compat-units"\n' >> ./conf/local.conf
+    echo -e '\nDISTRO_FEATURES:append = " systemd"\nDISTRO_FEATURES_BACKFILL_CONSIDERED += " sysvinit"\nVIRTUAL-RUNTIME_init_manager = " systemd"\nVIRTUAL-RUNTIME_initscripts = " systemd-compat-units"\n' >> ./conf/local.conf
     
     echo -e '\nEXTRA_IMAGE_FEATURES=""
     INHERIT += "extrausers"
     EXTRA_USERS_PARAMS = "\ 
     \tusermod -P avnet root; \ 
-    "' >> conf/local.conf  
-    
+    "' >> conf/local.conf
+
+    echo -e '\nEXTRA_IMAGE_FEATURES=""
+    INHERIT += "extrausers"
+    EXTRA_USERS_PARAMS = "\ 
+    \tusermod -P avnet root; \ 
+    "' >> conf/local.conf 
+
+    echo -e '\n\nINHERIT += "extrausers"\nEXTRA_USER_PARAMS = "usermod -P avnet root;"' >> conf/local.conf 
+
     exit
 
     make build

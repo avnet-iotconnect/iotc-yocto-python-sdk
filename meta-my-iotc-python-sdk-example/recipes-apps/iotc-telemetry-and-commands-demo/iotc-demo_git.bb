@@ -2,7 +2,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec6d293b95dea7b07891"
 
 DEPENDS = "iotc-demo-service"
-RDEPENDS_${PN} = "python3-iotconnect-sdk bash"
+RDEPENDS:${PN} = "python3-iotconnect-sdk bash"
 
 SRC_URI = "file://iotc-demo.py \
     file://model \
@@ -14,10 +14,10 @@ SRC_URI = "file://iotc-demo.py \
 APP_INSTALL_DIR = "${base_prefix}/usr/bin/local/iotc"
 PRIVATE_DATA_DIR = "${base_prefix}/usr/local/iotc"
 
-FILES_${PN}-dev = "${PRIVATE_DATA_DIR}/* \
+FILES:${PN}-dev = "${PRIVATE_DATA_DIR}/* \
 "
 
-FILES_${PN} +=  "${ROOT_HOME}/ " \
+FILES:${PN} +=  "${ROOT_HOME}/ " \
                 "${ROOT_HOME}/iotc-application.sh "
 
 do_install() {
