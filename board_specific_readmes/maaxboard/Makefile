@@ -1,10 +1,10 @@
 docker:
-	docker build -t yocto-builder . && \
+	docker build -t yocto-maaxboard-kirkstone . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-builder \
+	yocto-maaxboard-kirkstone \
 	--workdir=$${PWD}
 
 
@@ -13,7 +13,7 @@ build:
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-builder \
+	yocto-maaxboard-kirkstone \
 	--workdir=$${PWD} \
 	/bin/bash -c 'source ./sources/poky/oe-init-build-env ./maaxboard/build/ && bitbake core-image-base && exit'
 
@@ -22,6 +22,6 @@ env:
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-builder \
+	yocto-maaxboard-kirkstone \
 	--workdir=$${PWD} \
 	/bin/bash -c 'source ./sources/poky/oe-init-build-env ./maaxboard/build/ && bash'
