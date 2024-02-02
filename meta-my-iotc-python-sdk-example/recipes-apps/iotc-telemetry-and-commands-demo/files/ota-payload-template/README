@@ -52,6 +52,6 @@ To construct an OTA update, make a copy of `ota-payload-template` and add the pa
 once complete, compress the folder you have copied and made changes to
 
 Enter the folder and execute
-`tar -czvf ota-payload.tar.gz ./`
+`./construct_payload.sh`
 
 When creating an OTA update upload `ota-payload.tar.gz` as the only file.
