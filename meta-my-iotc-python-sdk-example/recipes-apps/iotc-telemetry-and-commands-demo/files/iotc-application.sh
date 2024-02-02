@@ -2,8 +2,8 @@
 app_name="iotc-demo.py"
 config_name="config.json"
 
-app_A_dir="/usr/bin/local/iotc/"
-config_A_dir="/usr/local/iotc/"
+app_A_dir="/usr/iotc/app/"
+config_A_dir="/usr/iotc/local/"
 app_B_dir="${app_A_dir::-1}.backup/"
 config_B_dir="${config_A_dir::-1}.backup/"
 
