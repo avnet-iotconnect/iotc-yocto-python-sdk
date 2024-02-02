@@ -16,8 +16,7 @@ meta-iotc-python-sdk/
 │   └── layer.conf
 └── recipes-apps
     └── iotc-python-sdk
-        ├── python3-iotconnect-sdk_0.1.bb
-        └── python3-jsonlib_1.6.1.bb
+        └── python3-iotconnect-sdk_0.1.bb
 ```
 
 ### `meta-my-iotc-python-sdk-example`
@@ -198,6 +197,7 @@ Then with regard to mapping template attributes to paths, in order to map the `V
 ```
 </details>
 
+<!---
 ### How to include layers
 To include the layers within a yocto environment:
 
@@ -209,6 +209,6 @@ To include the layers within a yocto environment:
 1. build with a bitbake call e.g. `./bitbake core-image-base`
 1. Flash the resultant image to the device.
 1. Login into the device & run the command `/usr/bin/local/iotc/iotc-demo.py /usr/local/iotc/config.json`
-
-## Board specific examples can be found [here](board_specific_readmes/README.md)
+-->
+## For a comprehensive guide on building for a specific boards and how to include the layers, click [here](board_specific_readmes/README.md)
 

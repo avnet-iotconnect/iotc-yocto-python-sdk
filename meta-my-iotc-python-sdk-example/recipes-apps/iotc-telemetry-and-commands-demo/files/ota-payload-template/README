@@ -1,6 +1,6 @@
 Provided are two folders and the installer script `install.sh`
-contents inside folder `application` are used to replace contents inside `/usr/bin/local/iotc`
-contents inside folder `local_data`  are used to replace contents inside `/usr/local/iotc`
+contents inside folder `application` are used to replace contents inside `/usr/iotc/app`
+contents inside folder `local_data`  are used to replace contents inside `/usr/iotc/local`
 
 The folder structure is as follows
 ```bash
@@ -52,6 +52,6 @@ To construct an OTA update, make a copy of `ota-payload-template` and add the pa
 once complete, compress the folder you have copied and made changes to
 
 Enter the folder and execute
-`tar -czvf ota-payload.tar.gz ./`
+`./construct_payload.sh`
 
 When creating an OTA update upload `ota-payload.tar.gz` as the only file.

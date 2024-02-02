@@ -11,14 +11,16 @@ SRC_URI = "file://iotc-demo.py \
     file://iotc-application.sh \
 "
 
-APP_INSTALL_DIR = "${base_prefix}/usr/bin/local/iotc"
-PRIVATE_DATA_DIR = "${base_prefix}/usr/local/iotc"
+APP_INSTALL_DIR = "${base_prefix}/usr/iotc/app"
+PRIVATE_DATA_DIR = "${base_prefix}/usr/iotc/local"
 
 FILES:${PN}-dev = "${PRIVATE_DATA_DIR}/* \
 "
 
 FILES:${PN} +=  "${ROOT_HOME}/ " \
                 "${ROOT_HOME}/iotc-application.sh "
+
+FILES:${PN} += "${APP_INSTALL_DIR}/*"
 
 do_install() {
     install -d ${D}${APP_INSTALL_DIR}

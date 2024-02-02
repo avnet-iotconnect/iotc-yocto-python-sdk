@@ -6,8 +6,8 @@ application_payload_dir="$SCRIPT_DIR/application/"
 local_data_payload_dir="$SCRIPT_DIR/local_data/"
 
 # Source directory to be backed up
-application_installed_dir="/usr/bin/local/iotc/"
-local_data_installed_dir="/usr/local/iotc/"
+application_installed_dir="/usr/iotc/app/"
+local_data_installed_dir="/usr/iotc/local/"
 application_backup_dir="${application_installed_dir::-1}.backup/"
 local_data_backup_dir="${local_data_installed_dir::-1}.backup/"
 

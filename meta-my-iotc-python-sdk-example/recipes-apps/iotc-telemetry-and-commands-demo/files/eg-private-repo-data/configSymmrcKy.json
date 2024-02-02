@@ -12,7 +12,7 @@
         }
     },
     "device": {
-        "commands_list_path": "/usr/bin/local/iotc/scripts",
+        "commands_list_path": "/usr/iotc/app/scripts",
         "offline_storage": {
             "available_space_MB": 1,
             "file_count": 1
@@ -20,12 +20,12 @@
         "attributes": [
             {
                 "name": "power",
-                "private_data": "/usr/bin/iotc/dummy_sensor_power",
+                "private_data": "/usr/iotc/app/dummy_sensor_power",
                 "private_data_type": "ascii"
             },
             {
                 "name": "level",
-                "private_data": "//usr/bin/iotc/dummy_sensor_level",
+                "private_data": "/usr/iotc/app/dummy_sensor_level",
                 "private_data_type": "ascii"
             }
         ]
