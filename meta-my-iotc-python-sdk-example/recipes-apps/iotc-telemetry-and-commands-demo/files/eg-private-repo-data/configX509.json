@@ -1,10 +1,24 @@
 {
     "sdk_ver": "2.1",
-    "duid": "Your Device's name in https://avnet.iotconnect.io/device/1",
-    "cpid": "'CPID' from https://avnet.iotconnect.io/key-vault",
-    "env": "'Environment' from https://avnet.iotconnect.io/key-vault",
+    
+    "__comment_duid":"Your Device's name",
+    "duid": "",
+
+    "_comment_cpid": "CPID from portal's Key Vault",
+    "cpid": "",
+
+    "_comment_env" : "Environment from portal's Key Vault",
+    "env": "",
+
+    "_comment_iotc_server_cert":"Path to Global root cert, different depending on AWS/Azure instance",
     "iotc_server_cert": "/etc/ssl/certs/DigiCert_Global_Root_G2.pem",
-    "sdk_id": "'SDK Identities -> Language: Python **, Version: 1.0' from https://avnet.iotconnect.io/key-vault",
+
+    "_comment_sdk_id": "'SDK Identities -> Language: Python **, Version: 1.0' from portal's Key Vault",
+    "sdk_id": "",
+    
+    "_comment_discovery_url": "depending on the url, it will connect to either Azure or AWS instance",
+    "discovery_url": "",
+    
     "auth": {
         "auth_type": "IOTC_AT_X509",
             "params": {
