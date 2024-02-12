@@ -45,6 +45,7 @@ class ToSDK:
                 file_count = "fileCount"
 
         symmetric_primary_key = "devicePrimaryKey"
+        discovery_url = "discoveryUrl"
 
 class FromJSON:
     '''
@@ -61,6 +62,7 @@ class FromJSON:
         sdk_ver = "sdk_ver"
         iotc_server_cert = "iotc_server_cert"
         commands_list_path = "commands_list_path"
+        discovery_url = "discovery_url"
 
     class Auth:
         """Human readable Enum for to mapping credential's auth object json format, including subclasses"""
@@ -139,6 +141,7 @@ def get_sdk_options(j:json):
     sdk_options: dict[str] = {}
     sdk_options.update(parse_auth(j))
     sdk_options.update(parse_device_offline_storage(j))
+    sdk_options.update({ ToSDK.SdkOptions.discovery_url : get(j, FromJSON.Keys.discovery_url)})
     return sdk_options
 
 
