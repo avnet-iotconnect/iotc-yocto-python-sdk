@@ -15,9 +15,9 @@ These instructions are designed to get a Yocto image up and running for a specif
     
     # the path is relative from the yocto build folder, this may be different from board to board
 
-    bitbake-layers add-layer ../layers/meta-iotconnect/meta-iotc-python-sdk/
+    bitbake-layers add-layer ../../meta-iotconnect/meta-iotc-python-sdk/
     
-    bitbake-layers add-layer ../layers/meta-iotconnect/meta-my-iotc-python-sdk-example/
+    bitbake-layers add-layer ../../meta-iotconnect/meta-my-iotc-python-sdk-example/
     
     echo -e '\nCORE_IMAGE_EXTRA_INSTALL += " iotc-demo-dev iotc-demo-service"' >> ./conf/local.conf
     
