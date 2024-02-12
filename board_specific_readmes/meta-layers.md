@@ -7,7 +7,7 @@ These instructions are designed to get a Yocto image up and running for a specif
     ```bash
     # You will need to clone the repository to a directory where all the other meta-layers exist, this different for each board
     
-    git clone https://github.com/avnet-iotconnect/iotc-yocto-python-sdk.git -b kirkstone ./meta-iotconnect
+    git clone https://github.com/avnet-iotconnect/iotc-yocto-python-sdk.git -b kirkstone ./layers/meta-iotconnect
 
     make env
 
