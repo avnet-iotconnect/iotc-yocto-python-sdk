@@ -34,8 +34,10 @@ Tested on Ubuntu 22.04, 23.10
     git clone https://github.com/Avnet/meta-maaxboard.git -b kirkstone sources/meta-maaxboard
     ```
 
-4.  Copy provided Makefile to project directory and execute these commands in the terminal
+4.  wget provided Makefile and Dockerile to project directory and execute these commands in the terminal
     ```bash
+    wget https://raw.githubusercontent.com/avnet-iotconnect/iotc-yocto-python-sdk/kirkstone/board_specific_readmes/maaxboard/Makefile && \
+    wget https://raw.githubusercontent.com/avnet-iotconnect/iotc-yocto-python-sdk/kirkstone/board_specific_readmes/maaxboard/Dockerfile
     make docker
     
     MACHINE=maaxboard source sources/meta-maaxboard/tools/maaxboard-setup.sh -b maaxboard/build
