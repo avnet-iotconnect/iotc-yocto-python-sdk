@@ -1,3 +1,5 @@
+.PHONY: docker build env
+
 docker:
 	docker build -t yocto-rzboard . && \
 	docker run --rm -it \
@@ -14,7 +16,7 @@ build:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	yocto-rzboard \
-	--workdir=$${PWD}/yocto_rzboard \
+	--workdir=$${PWD} \
 	/bin/bash -c 'source poky/oe-init-build-env build/ && bitbake avnet-core-image && exit'
 
 
@@ -24,5 +26,5 @@ env:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	yocto-rzboard \
-	--workdir=$${PWD}/yocto_rzboard \
+	--workdir=$${PWD}/ \
 	/bin/bash -c 'source poky/oe-init-build-env build/ && bash'
