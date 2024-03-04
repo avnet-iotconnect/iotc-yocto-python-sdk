@@ -16,7 +16,7 @@ build:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	yocto-rzboard \
-	--workdir=$${PWD} \
+	--workdir=$${PWD}/yocto_rzboard \
 	/bin/bash -c 'source poky/oe-init-build-env build/ && bitbake avnet-core-image && exit'
 
 
@@ -26,5 +26,5 @@ env:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	yocto-rzboard \
-	--workdir=$${PWD}/ \
+	--workdir=$${PWD}/yocto_rzboard \
 	/bin/bash -c 'source poky/oe-init-build-env build/ && bash'
