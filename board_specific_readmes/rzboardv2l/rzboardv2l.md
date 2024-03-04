@@ -77,6 +77,6 @@ Tested on Ubuntu 22.04
 ### Extras
 
 If there are any problems during building then running sequential builds as sometimes some dependencies are built out of sequence:
-    ```bash
-        make build
-    ```
+```bash
+	make build
+```
