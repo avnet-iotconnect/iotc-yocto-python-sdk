@@ -38,34 +38,39 @@ Tested on Ubuntu 22.04
 | RZ/V2L Multi-OS Package       | V1.10                      | [r01an6238ej0110-rzv2l-cm33-multi-os-pkg.zip](https://www.renesas.com/us/en/document/sws/rzv-multi-os-package-v110) |
 
 
-7. wget the docker and makefile
+4. wget the docker and makefile
 ```bash
     wget https://raw.githubusercontent.com/avnet-iotconnect/iotc-yocto-python-sdk/dunfell/board_specific_readmes/rzboardv2l/Dockerfile
     wget https://raw.githubusercontent.com/avnet-iotconnect/iotc-yocto-python-sdk/dunfell/board_specific_readmes/rzboardv2l/Makefile
     make docker
 ```
 
-4. wget and execute project setup script
+5. wget and execute project setup script
 ``` bash
     wget https://raw.githubusercontent.com/Avnet/meta-rzboard/rzboard_dunfell_5.10_v2/tools/create_yocto_rz_src.sh
     chmod a+x create_yocto_rz_src.sh
     ./create_yocto_rz_src.sh
 ```
 
-5. clone meta-rzboard
+6. clone meta-rzboard
 ```bash
     cd ./yocto_rzboard
     git clone https://github.com/Avnet/meta-rzboard.git -b rzboard_dunfell_5.10_v2 
 ```
 
-6. copy over build conf
+7. copy over build conf
 ```bash
     mkdir -p ./build/conf
     cp meta-rzboard/conf/rzboard/* build/conf/
     exit
 ```
 
-8.
+8. increase the image size of `avnet-core-image.bb`, you will need to add the line below to `meta-rzboard/recipes-core/images/avnet-core-image.bb`
+```bash
+	IMAGE_ROOTFS_SIZE = "5120000"
+```
+
+9.
 ```bash
     make build
 ```
