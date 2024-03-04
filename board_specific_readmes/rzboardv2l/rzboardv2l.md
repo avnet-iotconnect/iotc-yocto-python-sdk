@@ -85,4 +85,18 @@ If there are any problems during building then running sequential builds as some
    make build
 ```
 
+### Flashing
+Flashing instructions based on [Build, Deploy, & Run a Qt Enabled Image on the RZBoard V2L](https://www.hackster.io/lucas-keller/build-deploy-run-a-qt-enabled-image-on-the-rzboard-v2l-de6c41#toc-hardware-configuration-11) but there are some small changes to the instructions, read the instructions to set the jumpers, set dip switches etc and follow the procedure below to download and setup the flashing tool.
+```bash
+	cd yocto_rzboard/build/tmp/deploy/images/rzboard/
+	git clone https://github.com/Avnet/rzboard_flash_util.git
+	cd rzboard_flash_util
+	python3 -m venv venv
+	source venv/bin/activate
+	pip3 install -r requirements.txt
+
+	# finally to flash
+	sudo ./flash_rzboard.py --full --image_path ../	
+```
+
 
