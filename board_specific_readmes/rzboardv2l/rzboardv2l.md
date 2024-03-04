@@ -74,9 +74,15 @@ Tested on Ubuntu 22.04
 ```bash
     make build
 ```
+9. Proceed back to [meta-layers](../meta-layers.md) to add iotconnect meta layers to your build, note that you will only need to add
+`echo -e '\nCORE_IMAGE_EXTRA_INSTALL += " iotc-demo-dev iotc-demo-service"' >> ./conf/local.conf`
+ to your `local.conf` but not the other lines.
+
 ### Extras
 
 If there are any problems during building then running sequential builds as sometimes some dependencies are built out of sequence:
 ```bash
-	make build
+   make build
 ```
+
+
