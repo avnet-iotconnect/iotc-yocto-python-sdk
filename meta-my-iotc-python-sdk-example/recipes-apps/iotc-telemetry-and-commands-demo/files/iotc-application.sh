@@ -2,8 +2,8 @@
 app_name="iotc-demo.py"
 config_name="config.json"
 
-app_A_dir="/usr/iotc/app/"
-config_A_dir="/usr/iotc/local/"
+app_A_dir="/app/bin/iotc/"
+config_A_dir="/var/iotc/"
 app_B_dir="${app_A_dir::-1}.backup/"
 config_B_dir="${config_A_dir::-1}.backup/"
 
@@ -38,6 +38,20 @@ recover_primary()
     echo "Running backup"
     run_app $app_A_dir$app_name $config_A_dir$config_name
 }
+
+touch "/tmp/charge_completed"
+touch "/tmp/current_max_mWh"
+touch "/tmp/standard_cents_per_Wh"
+touch "/tmp/current_charge_config"
+touch "/tmp/current_mode"
+touch "/tmp/total_earnings"
+touch "/tmp/current_charge_current_value"
+touch "/tmp/current_start_mWh"
+touch "/tmp/total_sessions"
+touch "/tmp/current_charge_earnings"
+touch "/tmp/fast_cents_per_Wh"
+touch "/tmp/total_supplied_energy"
+touch "/tmp/current_charge_percentage_done"
 
 SECONDARY_EXISTS=false
 SECONDARY_PATH=$app_B_dir$app_name

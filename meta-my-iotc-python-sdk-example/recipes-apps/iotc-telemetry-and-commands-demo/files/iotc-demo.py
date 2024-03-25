@@ -21,7 +21,7 @@ def main(argv):
         
         data_sent = device.send_device_states()
         print(data_sent)
-        time.sleep(10)
+        time.sleep(5)
 
 if __name__ == "__main__":
     main(sys.argv)
