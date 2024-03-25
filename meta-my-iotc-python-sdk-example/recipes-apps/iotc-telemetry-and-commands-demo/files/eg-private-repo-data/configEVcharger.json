@@ -1,0 +1,104 @@
+{
+    "sdk_ver": "2.1",
+    
+    "__comment_duid":"Your Device's name",
+    "duid": "evcharger",
+
+    "_comment_cpid": "CPID from portal's Key Vault",
+    "cpid": "XXX",
+
+    "_comment_env" : "Environment from portal's Key Vault",
+    "env": "XXX",
+
+    "_comment_iotc_server_cert":"Path to Global root cert, different depending on AWS/Azure instance",
+    "iotc_server_cert": "/etc/ssl/certs/Amazon_Root_CA_1.pem",
+
+    "_comment_sdk_id": "'SDK Identities -> Language: Python **, Version: 1.0' from portal's Key Vault",
+    
+    "sdk_id": "XXX",
+    "_comment_discovery_url": "depending on the url, it will connect to either Azure or AWS instance",
+    "discovery_url": "XXX",
+    
+    "auth": {
+        "auth_type": "IOTC_AT_X509",
+            "params": {
+                "client_key": "/var/iotc/certs/pk_evcharger.pem",
+                "client_cert": "/var/iotc/certs/cert_evcharger.crt"
+        }
+    },
+    "device": {
+        "commands_list_path": "/app/bin/iotc/scripts",
+        "offline_storage": {
+            "available_space_MB": 1,
+            "file_count": 1
+        },
+        "attributes": [
+            {
+                "name": "charge_completed",
+                "private_data": "/tmp/charge_completed",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_max_mWh",
+                "private_data": "/tmp/current_max_mWh",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "standard_cents_per_Wh",
+                "private_data": "/tmp/standard_cents_per_Wh",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_charge_config",
+                "private_data": "/tmp/current_charge_config",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_mode",
+                "private_data": "/tmp/current_mode",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "total_earnings",
+                "private_data": "/tmp/total_earnings",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_charge_current_value",
+                "private_data": "/tmp/current_charge_current_value",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_start_mWh",
+                "private_data": "/tmp/current_start_mWh",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "total_sessions",
+                "private_data": "/tmp/total_sessions",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_charge_earnings",
+                "private_data": "/tmp/current_charge_earnings",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "fast_cents_per_Wh",
+                "private_data": "/tmp/fast_cents_per_Wh",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "total_supplied_energy",
+                "private_data": "/tmp/total_supplied_energy",
+                "private_data_type": "ascii"
+            },
+            {
+                "name": "current_charge_percentage_done",
+                "private_data": "/tmp/current_charge_percentage_done",
+                "private_data_type": "ascii"
+            }
+
+        ]
+    }
+}
